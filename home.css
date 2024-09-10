@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    background-color: #f5f5f5;
+    background-color: #5d8f848c;
     color: #333;
     width: 100vw;
     display: flex;
@@ -159,7 +159,8 @@ a {
     font-weight: 1000;
     font-size: 2.5rem;
     position: relative;
-    display: flex;
+    display: grid;
+
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -235,7 +236,7 @@ a {
 .top-bar p {
     text-align: center;
     font-size: 15px;
-    color: #666;
+    color: #000000;
 }
 
 /* Centered Projects */
@@ -287,7 +288,8 @@ footer {
 
 /* Dark Mode Styles */
 body.dark-mode .container{
-    background-color: black;
+    transition: 1s ease;
+    background-color: #000000be;
 }
 body.dark-mode {
     background-color: #121212;
@@ -330,6 +332,98 @@ body.dark-mode .footer-left {
 body.dark-mode .footer-right a {
     color: #e0e0e0;
 }
+body.dark-mode .side-navbar{
+    background-color: #1e1e1e;
+}
+body.dark-mode .side-navbar ul li{
+    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.499);
+}
+
+
+
+
+
+/* Default styles with transitions for #navitemsymbol */
+#navitemsymbol li {
+    transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#navitemsymbol li:nth-child(1) {
+    transform: rotate(0deg); 
+}
+
+#navitemsymbol li:nth-child(2) {
+    opacity: 1;
+    visibility: visible;
+}
+
+#navitemsymbol li:nth-child(3) {
+    transform: rotate(0deg);
+}
+
+#navitemsymbol.toggled li:nth-child(1) {
+    
+    transform: rotate(-45deg);
+    opacity: 1;
+    visibility: visible;
+}
+
+#navitemsymbol.toggled li:nth-child(2) {
+    
+    opacity: 0;
+    visibility: hidden;
+}
+
+#navitemsymbol.toggled li:nth-child(3) {
+     
+    transform: rotate(45deg);
+    opacity: 1;
+    visibility: visible;
+}
+
+.side-navbar{
+    height: auto;
+    position: absolute;
+    z-index: 4;
+    background-color: white;
+    width: 0;
+    top: 70px;
+    right: 0px;  
+    width: 0; 
+    overflow: hidden;
+    transition: width 0.4s  ease-in; 
+    box-shadow: 0 0 10px grey;
+}
+.side-navbar ul{
+    background-color: transparent;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    
+}
+/* Style for all list items */
+.side-navbar ul li {
+    background-color: transparent;
+    font-size: 12px;
+    text-align: center;
+    color: black;
+    padding-bottom: 18px;
+    
+    border-bottom: 2px solid rgba(0, 0, 0, 0.499);
+}
+
+/* Remove border-bottom from the last list item */
+.side-navbar ul li:last-child {
+    border-bottom: none;
+}
+.side-navbar.toggled{
+    width: 11rem;
+    transition: transform 0.8s ease;
+} 
+
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
@@ -350,7 +444,9 @@ body.dark-mode .footer-right a {
     .handles {
         width: 8rem;
     }
-
+    .side-navbar{
+        top: 60px;
+    }
     .top-bar {
         grid-template-columns: repeat(3, 1fr);
         padding: 3px;
@@ -370,7 +466,9 @@ body.dark-mode .footer-right a {
     .nav {
         height: 60px;
     }
-
+    .side-navbar{
+        top: 60px;
+    }
     .handles {
         width: 6rem;
     }
@@ -433,7 +531,9 @@ body.dark-mode .footer-right a {
     .handles {
         width: 6rem;
     }
-
+    .side-navbar{
+        top: 60px;
+    }
     .project-container {
         margin: 3rem 1rem;
         height: 100%;
@@ -483,4 +583,23 @@ body.dark-mode .footer-right a {
     .footer-left{
         margin-left: 10px;
     }
+}
+
+
+::-webkit-scrollbar {
+    width: 12px; 
+    height: 12px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
